@@ -1,0 +1,83 @@
+\documentclass{article}
+
+%----------------------------------------------------------------------------------------
+
+\usepackage{listings} % Required for inserting code snippets
+\usepackage[usenames,dvipsnames]{color} % Required for specifying custom colors and referring to colors by name
+
+\definecolor{DarkGreen}{rgb}{0.0,0.4,0.0} % Comment color
+\definecolor{highlight}{RGB}{255,251,204} % Code highlight color
+
+\lstdefinestyle{Style1}{ % Define a style for your code snippet, multiple definitions can be made if, for example, you wish to insert multiple code snippets using different programming languages into one document
+language=Java, % Detects keywords, comments, strings, functions, etc for the language specified
+%backgroundcolor=\color{highlight}, % Set the background color for the snippet - useful for highlighting
+basicstyle=\footnotesize\ttfamily, % The default font size and style of the code
+breakatwhitespace=false, % If true, only allows line breaks at white space
+breaklines=true, % Automatic line breaking (prevents code from protruding outside the box)
+captionpos=b, % Sets the caption position: b for bottom; t for top
+commentstyle=\usefont{T1}{pcr}{m}{sl}\color{DarkGreen}, % Style of comments within the code - dark green courier font
+deletekeywords={}, % If you want to delete any keywords from the current language separate them by commas
+%escapeinside={\%}, % This allows you to escape to LaTeX using the character in the bracket
+firstnumber=1, % Line numbers begin at line 1
+frame=single, % Frame around the code box, value can be: none, leftline, topline, bottomline, lines, single, shadowbox
+frameround=tttt, % Rounds the corners of the frame for the top left, top right, bottom left and bottom right positions
+keywordstyle=\color{Blue}\bf, % Functions are bold and blue
+morekeywords={}, % Add any functions no included by default here separated by commas
+numbers=left, % Location of line numbers, can take the values of: none, left, right
+numbersep=10pt, % Distance of line numbers from the code box
+numberstyle=\tiny\color{Gray}, % Style used for line numbers
+rulecolor=\color{black}, % Frame border color
+showstringspaces=false, % Don't put marks in string spaces
+showtabs=false, % Display tabs in the code as lines
+stepnumber=5, % The step distance between line numbers, i.e. how often will lines be numbered
+stringstyle=\color{Purple}, % Strings are purple
+tabsize=2, % Number of spaces per tab in the code
+}
+
+\newcommand{\insertcode}[2]{\begin{itemize}\item[]\lstinputlisting[caption=#2,label=#1,style=Style1]{#1}\end{itemize}} % 
+
+\begin{document}
+
+\section{Summary}
+\subsection{Lost messages}
+\subsubsection{RMI}
+No messages were lost with RMI.
+\subsubsection{UDP}
+One probable cause is that the receiving buffer gets full, not accepting anymore messages until 
+it clears space in the buffer. Another probable cause is that it is lost in transit, although it 
+is not very likely because we are testing in a LAN. Finally, it may be the case that the sending
+buffer gets filled up when sending a lot of packets, thus dropping some packets when filled.
+\subsection{Patterns in lost messages}
+\subsubsection{RMI}
+No messages were lost with RMI.
+\subsubsection{UDP}
+The general pattern with UDP is that no messages are lost for a few client connections in a row,
+and suddenly approximately 40\% of the messages are lost in the next connection. The cycle then repeats.
+\subsection{Reliability}
+\subsubsection{RMI}
+RMI is very reliable. In our case, we haven't seen a single message lost.
+\subsubsection{UDP}
+UDP is very unreliable. Although it is true that sometimes no messages are lost, it might be the
+case that the next connection loses half of the messages sent, affecting severely its reliability.
+\subsection{Difficulty to program}
+In our case, we found it easier to program the RMI client and server. This was due to the fact
+that we didn't have to start from scratch because \texttt{RMIServer} extends \texttt{UnicastRemoteObject} so 
+a lot of functionality is hidden from us. On the other hand, with UDP we don't have a Registry
+so we have to handle connections in a lower level.
+\section{Console logs}
+
+\section{Listings}
+\subsection{RMI Client}
+\insertcode{"rmi/RMIClient.java"}{RMI Client}
+
+\subsection{RMI Server}
+\insertcode{"rmi/RMIServer.java"}{RMI Server}
+
+\subsection{UDP Client}
+\insertcode{"udp/UDPClient.java"}{UDP Client}
+
+\subsection{UDP Server}
+\insertcode{"udp/UDPServer.java"}{UDP Server}
+
+
+\end{document}
