@@ -22,8 +22,8 @@ public class RMIClient {
 			System.exit(-1);
 		}
 
-		String urlServer = new String("rmi://" + args[0] + "/RMIServer");
 		int numMessages = Integer.parseInt(args[1]);
+    int recvPort = 8000;
 
 		// Initialise Security Manager
     if (System.getSecurityManager() == null) {
@@ -32,7 +32,7 @@ public class RMIClient {
 
     try {
 		  // Bind to RMIServer
-      Registry registry = LocateRegistry.getRegistry(args[0], 8000);
+      Registry registry = LocateRegistry.getRegistry(args[0], recvPort);
       iRMIServer = (RMIServerI) registry.lookup("RMIServer");
 		  // Attempt to send messages the specified number of times
 		  for (int i = 0; i < numMessages; i++) {

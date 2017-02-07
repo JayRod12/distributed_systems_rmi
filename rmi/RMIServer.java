@@ -29,43 +29,38 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerI {
       receivedMessages = new boolean[totalMessages];
       messageCount = 0;
     }
-    System.out.println("Message received: " + (msg.messageNum + 1) + "/" + totalMessages);
     messageCount++;
 
 		// Log receipt of the message
 		receivedMessages[msg.messageNum] = true;
 
+
 		// If this is the last expected message, then identify
 		// any missing messages
 		if (msg.messageNum == totalMessages - 1) {
-      String missing = (totalMessages - messageCount) + " messages out of " + totalMessages + " were lost: ";
-      for (int i = 0; i < totalMessages; i++) {
-        if (!receivedMessages[i]) {
-          missing += i + ", ";
-        }
-      }
-      System.out.println(missing);
+      Util.printSummary(messageCount, totalMessages);
       clean();
     }
 	}
 
+
   private void clean() {
     receivedMessages = null;
+    messageCount = 0;
+    totalMessages = 0;
   }
 
 	public static void main(String[] args) {
 
+    int recvPort = 8000;
 		RMIServer rmis = null;
 
 		// Initialise Security Manager
     if (System.getSecurityManager() == null) {
-      System.setSecurityManager(new SecurityManager());
-    }
-
-    try {
+      System.setSecurityManager(new SecurityManager()); } try {
 		  // Instantiate the server class and bind to RMI registry
       rmis = new RMIServer();
-      rebindServer("RMIServer", rmis);
+      rebindServer("RMIServer", rmis, recvPort);
 
     } catch (Exception e) {
       System.err.println("RMIServer Exception");
@@ -73,10 +68,11 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerI {
     }
 	}
 
-	protected static void rebindServer(String serverURL, RMIServer server) {
+	protected static void rebindServer(String serverURL, RMIServer server, int recvPort) {
     try {
-		  Registry registry = LocateRegistry.createRegistry(8000);
+		  Registry registry = LocateRegistry.createRegistry(recvPort);
 		  registry.rebind(serverURL, server);
+      System.out.println("RMIServer ready");
     } catch (Exception e) {
       System.err.println("RMIServer rebind server exception");
       e.printStackTrace();

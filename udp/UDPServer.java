@@ -10,7 +10,7 @@ import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.util.Arrays;
 
-import common.MessageInfo;
+import common.*;
 
 public class UDPServer {
 
@@ -42,7 +42,7 @@ public class UDPServer {
         pacData = pac.getData();
         processMessage(new String(pacData, 0, pacSize));
       } catch (SocketTimeoutException e) {
-        printSummary();
+        Util.printSummary(messageCount, totalMessages);
         clean();
       } catch (Exception e) {
         System.err.println("UDPServer Exception");
@@ -67,7 +67,7 @@ public class UDPServer {
       messageCount++;
 		  receivedMessages[msg.messageNum] = true; 
 		  if (msg.messageNum == totalMessages - 1) {
-        printSummary();
+        Util.printSummary(messageCount, totalMessages);
         clean();
       }
     } catch (Exception e) {
@@ -81,10 +81,6 @@ public class UDPServer {
     totalMessages = 0;
   }
 
-  private void printSummary() {
-    String missing = (totalMessages - messageCount) + " messages out of " + totalMessages + " were lost: ";
-    System.out.println(missing);
-  }
 
 	public UDPServer(int rp) {
 		try {

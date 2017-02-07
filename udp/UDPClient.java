@@ -53,7 +53,6 @@ public class UDPClient {
 	}
 
 	private void testLoop(InetAddress serverAddr, int recvPort, int countTo) {
-		int tries = 100;
 		for (int i = 0; i < countTo; i++) {
       String payload = countTo + ";" + i;
       send(payload, serverAddr, recvPort);
