@@ -1,0 +1,20 @@
+UDPServer ready
+<12:44:31> 606 messages out of 1000 were lost.
+<12:44:32> 0 messages out of 1000 were lost.
+<12:44:34> 0 messages out of 1000 were lost.
+<12:44:35> 0 messages out of 1000 were lost.
+<12:44:36> 0 messages out of 1000 were lost.
+<12:44:37> 0 messages out of 1000 were lost.
+<12:44:38> 0 messages out of 1000 were lost.
+<12:44:38> 0 messages out of 1000 were lost.
+<12:44:39> 0 messages out of 1000 were lost.
+<12:44:40> 0 messages out of 1000 were lost.
+<12:44:41> 0 messages out of 1000 were lost.
+<12:44:41> 0 messages out of 1000 were lost.
+<12:44:42> 0 messages out of 1000 were lost.
+<12:44:42> 0 messages out of 1000 were lost.
+<12:44:46> 0 messages out of 2000 were lost.
+<12:44:46> 0 messages out of 2000 were lost.
+<12:44:47> 0 messages out of 2000 were lost.
+<12:44:48> 0 messages out of 2000 were lost.
+<12:44:49> 0 messages out of 2000 were lost.

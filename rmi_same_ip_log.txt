@@ -1,0 +1,11 @@
+RMIServer ready
+<12:42:02> 0 messages out of 2000 were lost.
+<12:42:03> 0 messages out of 2000 were lost.
+<12:42:04> 0 messages out of 2000 were lost.
+<12:42:05> 0 messages out of 2000 were lost.
+<12:42:06> 0 messages out of 2000 were lost.
+<12:42:06> 0 messages out of 2000 were lost.
+<12:42:09> 0 messages out of 10000 were lost.
+<12:42:10> 0 messages out of 10000 were lost.
+<12:42:11> 0 messages out of 10000 were lost.
+<12:42:12> 0 messages out of 2000 were lost.

@@ -1,0 +1,16 @@
+RMI Server: 146.169.53.58:3000, Client: 146.169.52.18
+<12:57:38> 0 messages out of 2000 were lost.
+<12:57:40> 0 messages out of 2000 were lost.
+<12:57:43> 0 messages out of 20 were lost.
+<12:57:44> 0 messages out of 20 were lost.
+<12:57:46> 0 messages out of 50 were lost.
+<12:57:48> 0 messages out of 50 were lost.
+<12:57:50> 0 messages out of 100 were lost.
+<12:57:52> 0 messages out of 100 were lost.
+<12:57:55> 0 messages out of 500 were lost.
+<12:57:57> 0 messages out of 500 were lost.
+<12:58:01> 0 messages out of 1000 were lost.
+<12:58:02> 0 messages out of 1000 were lost.
+<12:58:07> 0 messages out of 2000 were lost.
+<12:58:10> 0 messages out of 2000 were lost.
+<12:58:14> 0 messages out of 5000 were lost.

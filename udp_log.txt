@@ -1,8 +1,5 @@
 UDPServer ready
 <19:53:49> 581 messages out of 1000 were lost.
-<19:53:54> 0 messages out of 0 were lost.
-<19:53:59> 0 messages out of 0 were lost.
-<19:54:04> 0 messages out of 0 were lost.
 <19:54:08> 70 messages out of 1000 were lost.
 <19:54:10> 0 messages out of 1000 were lost.
 <19:54:11> 0 messages out of 1000 were lost.
@@ -25,7 +22,6 @@ UDPServer ready
 <19:54:43> 0 messages out of 1000 were lost.
 <19:54:45> 10 messages out of 1000 were lost.
 <19:54:47> 0 messages out of 1000 were lost.
-<19:54:51> -983 messages out of 1000 were lost.
 <19:54:54> 305 messages out of 1000 were lost.
 <19:54:56> 0 messages out of 1000 were lost.
 <19:54:58> 79 messages out of 1000 were lost.
